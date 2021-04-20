@@ -1,0 +1,119 @@
+{% macro displayNewsSource(source_list) %} {% for newsSource in source_list %}
+<a href="/watchdogs/{{ newsSource.id }}">
+<div class="col-md-4 col-sm-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{ newsSource.name }}
+    </div>
+  </div>
+</div>
+</a>
+
+{%endfor%} {% endmacro %}
+
+<!-- ========================Articles Macro =============================-->
+
+<!-- Major-block-1 macro -->
+{% macro displayMajorArticle(major)%}
+<div class="col-sm-12 mb-3">
+  <div class="row" id="major-block-row">
+    <div class="col-sm-12 col-md-8 major-img">
+      <img
+        src="{{ major.urlToImage }}"
+        alt="{{ major.title }}"
+        class="img-responsive"
+      />
+    </div>
+    <div class="col-sm-12 col-md-4" id="major-content">
+      <div class="heading">
+          <h5 class="text-primary">{{ major.author }}</h5>
+          <span class="text-muted">last Updated:{{ major.publishedAt }}</span>
+      </div>
+    
+      <h2 class="text-title">
+        <a href="{{ major.url }}" target="_blank">{{ major.title }}</a>
+      </h2>
+      <p class="lead">{{ major.content }}</p>
+    </div>
+  </div>
+</div>
+{%endmacro%}
+<!-- end major-block-1 macro -->
+
+<!-- major block 2 macro -->
+{% macro displayMajor2Articles(major2)%} {%for article in major2 %}
+<div class="col-sm-12  col-md-6  major-img">
+  <div class="img-top">
+    <img
+      src="{{ article.urlToImage }}"
+      alt="{{ article.title }}"
+      class="img-responsive"
+    />
+  </div>
+  <div class="major2-content">
+    <div class="heading">
+      <h5 class="text-primary">{{ article.author }}</h5>
+      <span class="text-muted">Last Updated:{{ article.publishedAt }}</span>
+    </div>
+    <h2 class="text-title">
+      <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+    </h2>
+    <!-- <p class="lead">{{ article.content}}</p> -->
+  </div>
+</div>
+{% endfor%} {% endmacro%}
+<!-- end major block 2 macro-->
+
+<!-- latest macro -->
+{% macro displayLatestArticles(latest) %} {% for article in latest%}
+<div class="col-sm-12 mb-3">
+  <div class="row inside-cols">
+    <div class="col-sm-4 img-cols">
+      <img
+        src="{{ article.urlToImage }}"
+        alt="{{ article.title }}"
+        class="img-responsive article-img"
+      />
+    </div>
+    <div class="col-sm-8 article-info">
+      <div class="heading">
+        <h5 class="text-primary">{{ article.author }}</h5>
+        <span class="text-muted">{{ article.publishedAt }}</span>
+
+      </div>
+      <h2 class="text-title">
+        <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+      </h2>
+      <p class="lead">{{ article.content}}</p>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endmacro%}
+<!-- end latest macro -->
+
+{% macro displayMoreArticles(more_list) %} {% for article in more_list %}
+<div class="col-sm-12 mb-3">
+  <div class="row inside-cols">
+    <div class="col-sm-4 img-cols">
+      <img
+        src="{{ article.urlToImage }}"
+        alt="{{ article.title }}"
+        class="img-responsive article-img"
+      />
+    </div>
+    <div class="col-sm-8 article-info">
+      <div class="heading">
+        <h5 class="text-primary">{{ article.author }}</h5>
+        <span class="text-muted">{{ article.publishedAt }}</span>
+        <span>     
+      </div>
+      <h2 class="text-title">
+          <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+        </h2>
+      <p class="lead">{{ article.content }}</p>
+    </div>
+
+  </div>
+</div>
+
+{% endfor %} {% endmacro%}

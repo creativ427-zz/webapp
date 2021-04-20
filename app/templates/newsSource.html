@@ -1,0 +1,36 @@
+{% extends 'base.html'%} {% import 'macros.html' as macro %}
+<!-- content block -->
+
+<!-- styles block -->
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
+{% endblock styles%} {% block content %}
+<div class="container">
+  <h2>{{ title | upper }}</h2>
+  <div class="row major-article">
+    {{ macro.displayMajorArticle(majorArticle) }}
+  </div>
+
+  <div class="row major2">
+    {{ macro.displayMajor2Articles(major2Article) }}
+  </div>
+
+  <div class="row">
+    <header class="header">
+      <h2>latest</h2>
+    </header>
+    <hr />
+    {{ macro.displayLatestArticles(latestArticle) }}
+  </div>
+
+  <div class="row">
+    <header class="header">
+      <h2>More</h2>
+    </header>
+    <hr />
+    {{ macro.displayMoreArticles(moreArticle) }}
+
+  </div>
+</div>
+{% endblock content%}
